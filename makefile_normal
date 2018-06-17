@@ -1,0 +1,29 @@
+output: Main_Optics.o Data.o  Optics.o List.o RTree.o dataDistribution.o file_io.o 
+	gcc -g -fopenmp -o  output Data.o  Optics.o List.o RTree.o file_io.o dataDistribution.o Main_Optics.o -lm  
+
+
+
+Data.o: Data.c
+	gcc -g -fopenmp   -c  Data.c  
+	
+
+Optics.o: Optics.c
+	gcc -g -fopenmp  -c Optics.c 
+List.o: List.c
+	gcc -g  -fopenmp  -c List.c
+	 
+RTree.o : RTree.c
+	gcc -g -fopenmp  -c RTree.c 
+	
+dataDistribution.o : dataDistribution.c
+	gcc -g -fopenmp -c dataDistribution.c 
+	
+file_io.o : file_io.c
+	gcc -g -fopenmp  -c file_io.c 
+Main_Optics.o: Main_Optics.c
+	gcc -g -fopenmp -c Main_Optics.c 
+	
+clean:
+	rm *.o
+	rm output
+	#rm output1

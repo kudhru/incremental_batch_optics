@@ -1,0 +1,42 @@
+timestamp: Data.o  Optics.o List.o RTree.o dataDistribution.o file_io.o giveTimestamp.o
+	gcc -fopenmp  -o timestamp Data.o  Optics.o List.o RTree.o file_io.o dataDistribution.o giveTimestamp.o -lm  
+#output: Data.o IOptics.o Optics.o List.o RTree.o Main_rtree.o
+#	gcc -g -o output Data.o IOptics.o Optics.o List.o RTree.o Main_rtree.o -lm
+
+#output: Data.o IOptics.o Optics.o List.o RTree.o Main2.o
+#	gcc -g -o output Data.o IOptics.o Optics.o List.o RTree.o Main2.o -lm
+
+#output: Data.o IOptics.o Optics.o List.o RTree.o Main2.o
+#	gcc -g -o output Data.o IOptics.o Optics.o List.o RTree.o Main2.o -lm
+
+#Main1.o: Main_Batch.c
+#	gcc -g -c Main_Batch.c
+
+giveTimestamp.o: giveTimestamp.c
+	gcc -fopenmp  -c giveTimestamp.c 
+
+
+
+Data.o: Data.c
+	gcc -fopenmp  -c  Data.c  
+	
+
+Optics.o: Optics.c
+	gcc -fopenmp -c Optics.c 
+	
+List.o: List.c
+	gcc -fopenmp  -c List.c
+	 
+RTree.o : RTree.c
+	gcc -fopenmp -c RTree.c  
+	
+dataDistribution.o : dataDistribution.c
+	gcc -fopenmp  -c dataDistribution.c 
+	
+file_io.o : file_io.c
+	gcc -fopenmp -c file_io.c 
+	
+clean:
+	rm *.o
+	rm output
+	#rm output1

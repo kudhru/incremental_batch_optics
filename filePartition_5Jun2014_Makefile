@@ -1,0 +1,17 @@
+filePartition5Jun2014: Data.o file_io.o FilePartition_5_jun_2014.o 
+	gcc -g -fopenmp -o  filePartition5Jun2014 Data.o file_io.o FilePartition_5_jun_2014.o -lm  
+
+
+
+Data.o: Data.c
+	gcc -g -fopenmp   -c  Data.c  
+
+file_io.o : file_io.c
+	gcc -g -fopenmp  -c file_io.c 
+FilePartition_5_jun_2014.o: FilePartition_5_jun_2014.c
+	gcc -g -fopenmp -c FilePartition_5_jun_2014.c 
+	
+clean:
+	rm *.o
+	rm output
+	#rm output1

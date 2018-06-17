@@ -1,0 +1,41 @@
+output: Data.o  Optics.o List.o RTree.o dataDistribution.o file_io.o randomShuffleData.o
+	mpicc -g -fopenmp -o  output Data.o  Optics.o List.o RTree.o file_io.o dataDistribution.o randomShuffleData.o -lm  
+#output: Data.o IOptics.o Optics.o List.o RTree.o Main_rtree.o
+#	gcc -g -o output Data.o IOptics.o Optics.o List.o RTree.o Main_rtree.o -lm
+
+#output: Data.o IOptics.o Optics.o List.o RTree.o Main2.o
+#	gcc -g -o output Data.o IOptics.o Optics.o List.o RTree.o Main2.o -lm
+
+#output: Data.o IOptics.o Optics.o List.o RTree.o Main2.o
+#	gcc -g -o output Data.o IOptics.o Optics.o List.o RTree.o Main2.o -lm
+
+#Main1.o: Main_Batch.c
+#	gcc -g -c Main_Batch.c
+
+randomShuffleData.o: randomShuffleData.c
+	mpicc -g -fopenmp -c randomShuffleData.c 
+
+
+
+Data.o: Data.c
+	mpicc -g -fopenmp   -c  Data.c  
+	
+
+Optics.o: Optics.c
+	mpicc -g -fopenmp  -c Optics.c 
+List.o: List.c
+	mpicc -g  -fopenmp  -c List.c
+	 
+RTree.o : RTree.c
+	mpicc -g -fopenmp  -c RTree.c 
+	
+dataDistribution.o : dataDistribution.c
+	mpicc -g -fopenmp -c dataDistribution.c 
+	
+file_io.o : file_io.c
+	mpicc -g -fopenmp  -c file_io.c 
+	
+clean:
+	rm *.o
+	rm output
+	#rm output1
